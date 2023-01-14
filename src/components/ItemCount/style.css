@@ -1,0 +1,15 @@
+.counter{
+    background-color: rgb(221, 221, 221);
+    width: fit-content;
+    border-radius: 10px;
+    padding: 5px;
+
+    
+}
+.counterControllers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 30px;
+    align-items: center;
+}
