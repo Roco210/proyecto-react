@@ -1,11 +1,12 @@
 import "./style.css"
 import { useState } from "react";
 
+
 const ItemCount = () => {
   const stock=10
   const [counter,setCounter] =useState(0);
   const suma =()=>{
-    if(stock ==counter){
+    if(stock ===counter){
       return;
     }
     setCounter (counter+1);
