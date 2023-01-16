@@ -21,7 +21,7 @@ const ItemListContainer = ({greeting}) => {
     })
     .then()
     .catch(error => console.log("erorr")) },[]);
-console.log(products)
+
 return (
   <div>
     {greeting}

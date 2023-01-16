@@ -1,10 +1,10 @@
 import "./style.css"
 import ItemCount from "../../components/ItemCount/ItemCount"
 const Item = ({producto}) => {
-
+  console.log(producto.image)
   return ( 
     <li className="card" key={producto.id}>
-      <img src={producto.images} alt={producto.name} />
+      <img src={producto.image} alt={producto.name} />
       <div>{producto.name}</div>
       <div><ItemCount/></div>
     
