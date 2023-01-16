@@ -1,6 +1,6 @@
 import "./style.css"
 import { useEffect, useState } from "react";
-import ItemCount from "../../components/ItemCount/ItemCount"
+import DataBase from "../../components/DataBase/DataBase"
 import ItemsList from "../../components/Itemslist/ItemsList";
 
 const ItemListContainer = ({greeting}) => {
@@ -9,10 +9,7 @@ const ItemListContainer = ({greeting}) => {
 
   const getProduct = new Promise ((resolve,reject)=>{
     setTimeout(()=>{
-      resolve(["produto 1",
-        "produto 2",
-        "produto 3",
-        ]); 
+      resolve(DataBase); 
       }, 2000);
     
   });
@@ -24,11 +21,11 @@ const ItemListContainer = ({greeting}) => {
     })
     .then()
     .catch(error => console.log("erorr")) },[]);
-
+console.log(products)
 return (
   <div>
     {greeting}
-    <ItemCount/>
+    
     <ItemsList productos={products}/>
   </div>
 ); }
