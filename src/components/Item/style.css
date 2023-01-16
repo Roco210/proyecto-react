@@ -2,8 +2,14 @@
     margin:20px;
     background-color: red;
     padding: 10px;
+    display: flex;
+    display: table-column;
+    text-align: center;
+    border-radius: 10px;
+    
 }
 .card > img{
     height: 100px;
     width: 100px;
+    
 }
