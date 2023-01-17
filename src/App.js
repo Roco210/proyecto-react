@@ -3,7 +3,7 @@ import './App.css';
 import {BrowserRouter,Route,Routes} from "react-router-dom";
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './pages/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer';
+
 
 function App() {
   return (
@@ -11,9 +11,8 @@ function App() {
     <BrowserRouter>
     <NavBar/>
       <Routes>
-        <Route path='/' element={<ItemListContainer greeting="hola mundo"/>}/>
-        <Route path='/category/:id' element={<ItemListContainer/>}/>
-        <Route path='/item/:id' element={<ItemDetailContainer/>}/>
+        <Route path='/' element={<ItemListContainer/>}/>
+        <Route path="item" element={<ItemListContainer/>}></Route>
       </Routes>
     </BrowserRouter>
    

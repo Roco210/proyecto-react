@@ -7,7 +7,7 @@ const ItemListContainer = ({greeting}) => {
 
   const [products, setProducts] =useState ([])
 
-  const getProduct = new Promise ((resolve,reject)=>{
+  const getProducts = new Promise ((resolve,reject)=>{
     setTimeout(()=>{
       resolve(DataBase); 
       }, 2000);
@@ -15,18 +15,14 @@ const ItemListContainer = ({greeting}) => {
   });
   
   useEffect (()=>{
-    getProduct.then((response)=>{
-      console.log(response)
+    getProducts.then((response)=>{
       setProducts(response)
     })
-    .then()
     .catch(error => console.log("erorr")) },[]);
 
 return (
   <div>
-    {greeting}
-    
-    <ItemsList productos={products}/>
+    <ItemsList productos={products}/> 
   </div>
 ); }
 export default ItemListContainer;

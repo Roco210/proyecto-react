@@ -6,9 +6,8 @@
     display: table-column;
     text-align: center;
     border-radius: 10px;
-    
 }
-.card > img{
+.cardImage {
     height: 100px;
     width: 100px;
     
