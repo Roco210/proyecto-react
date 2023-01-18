@@ -16,3 +16,14 @@
 .lista > li{
     margin: 30px;
 }
+
+.active{
+    color: red;
+}
+
+.inactive{
+    color:black
+}
+a{
+    text-decoration: none;
+}

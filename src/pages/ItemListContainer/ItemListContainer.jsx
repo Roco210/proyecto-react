@@ -2,10 +2,11 @@ import "./style.css"
 import { useEffect, useState } from "react";
 import DataBase from "../../components/DataBase/DataBase"
 import ItemsList from "../../components/Itemslist/ItemsList";
-
+import { useParams } from "react-router-dom";
 const ItemListContainer = ({greeting}) => {
 
   const [products, setProducts] =useState ([])
+  const {category} =useParams()
 
   const getProduct = new Promise ((resolve,reject)=>{
     setTimeout(()=>{
@@ -16,12 +17,16 @@ const ItemListContainer = ({greeting}) => {
   
   useEffect (()=>{
     getProduct.then((response)=>{
-      console.log(response)
       setProducts(response)
     })
-    .then()
     .catch(error => console.log("erorr")) },[]);
 
+  useEffect(()=>{
+    if(typeof(category) !== "undefined"){
+      const filtradoCat = products.filter((p)=>p.category===category)
+      setProducts(filtradoCat)
+    }
+  },[category])
 return (
   <div>
     {greeting}
