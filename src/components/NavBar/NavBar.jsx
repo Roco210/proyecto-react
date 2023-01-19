@@ -7,7 +7,7 @@ const NavBar = () => {
     <div className="navBar">
         <div>
         <NavLink to="/" className={({ isActive }) => isActive ? "active": "inactive"}>
-          <img src="./images/plant.png" alt="brand" />
+          <img src="../images/plant.png" alt="brand" />
         </NavLink>
         </div>
         <div>

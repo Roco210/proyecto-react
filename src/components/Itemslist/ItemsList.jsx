@@ -3,6 +3,7 @@ import Item from "../Item/Item";
 import "./style.css"
 
 const ItemsList = ({productos}) => {
+  console.log(productos)
   return (
     <ul className="cardContainer">
         {productos.map((p)=>(

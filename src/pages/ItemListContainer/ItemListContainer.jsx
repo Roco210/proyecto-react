@@ -22,8 +22,8 @@ const ItemListContainer = ({greeting}) => {
     .catch(error => console.log("erorr")) },[]);
 
   useEffect(()=>{
-    if(typeof(category) !== "undefined"){
-      const filtradoCat = products.filter((p)=>p.category===category)
+    if(category){
+      const filtradoCat = products.filter((p)=>p.category==category)
       setProducts(filtradoCat)
     }
   },[category])
