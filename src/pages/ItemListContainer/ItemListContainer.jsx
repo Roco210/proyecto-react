@@ -11,25 +11,22 @@ const ItemListContainer = ({greeting}) => {
   const getProduct = new Promise ((resolve,reject)=>{
     setTimeout(()=>{
       resolve(DataBase); 
-      }, 2000);
+      }, 10);
     
   });
   
   useEffect (()=>{
     getProduct.then((response)=>{
-      setProducts(response)
+      if(category){
+        const filtradoCat = products.filter((p)=>p.category===category)
+        setProducts(filtradoCat)
+      }else(setProducts(response))
     })
-    .catch(error => console.log("erorr")) },[]);
+    .catch(error => console.log("error")) },[category]);
 
-  useEffect(()=>{
-    if(category){
-      const filtradoCat = products.filter((p)=>p.category==category)
-      setProducts(filtradoCat)
-    }
-  },[category])
+
 return (
   <div>
-    {greeting}
     
     <ItemsList productos={products}/>
   </div>

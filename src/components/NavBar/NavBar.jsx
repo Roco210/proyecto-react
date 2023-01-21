@@ -14,8 +14,8 @@ const NavBar = () => {
             <ul className="lista">
               
                 <li><NavLink to="/" className={({ isActive }) => isActive ? "active": "inactive"}>TODO</NavLink></li>
-                <li><NavLink to="/category/jardineria" className={({ isActive }) => isActive ? "active": "inactive"}>JARDINERIA</NavLink></li>
-                <li><NavLink to="/category/planta" className={({ isActive }) => isActive ? "active": "inactive"}>PLANTA</NavLink></li>
+                <li><NavLink to="category/jardineria" className={({ isActive }) => isActive ? "active": "inactive"}>JARDINERIA</NavLink></li>
+                <li><NavLink to="category/planta" className={({ isActive }) => isActive ? "active": "inactive"}>PLANTA</NavLink></li>
             </ul>
         </div>
         <div><CartWidget/></div>
