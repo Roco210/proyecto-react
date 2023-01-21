@@ -18,7 +18,7 @@ const ItemListContainer = ({greeting}) => {
   useEffect (()=>{
     getProduct.then((response)=>{
       if(category){
-        const filtradoCat = products.filter((p)=>p.category===category)
+        const filtradoCat = response.filter((p)=>p.category===category)
         setProducts(filtradoCat)
       }else(setProducts(response))
     })
