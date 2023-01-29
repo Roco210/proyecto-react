@@ -1,9 +1,12 @@
 import "./style.css"
 import { Link } from "react-router-dom";
-import ItemCount from "../../components/ItemCount/ItemCount"
+import { cartContext } from "../../context/cartContex";
+import { useContext } from "react";
 
 
 const Item = ({producto}) => {
+  const conte =useContext(cartContext)
+ 
   return ( 
     <li className="card" >
       <Link  to={`/item/${producto.id}`}>
@@ -12,8 +15,6 @@ const Item = ({producto}) => {
         <div>${producto.price}</div>
         <button>Detalle</button>
       </Link>
-      <div><ItemCount/></div>
-    
     </li>
   )
 };

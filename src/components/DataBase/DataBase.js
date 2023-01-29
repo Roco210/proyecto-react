@@ -1,6 +1,6 @@
 
 const DataBase = [
-        {id:1,name:'jazmin',category:"planta",price:300, description:'planta de exterior muy grande',stock:5,image:"https://th.bing.com/th/id/R.dd3805ba64d77c6040979ad264b126de?rik=sLa5TJ9LBRzwfA&riu=http%3a%2f%2fhablemosdeflores.com%2fwp-content%2fuploads%2f2017%2f06%2fjazmin.jpg&ehk=%2bYre%2fpfNZo9hERCVjAG6vMWLF97S1r8VXov8z1R7rPU%3d&risl=&pid=ImgRaw&r=0"},
+        {id:1,name:'jazmin',category:"planta",price:300, description:' de exterior muy grande',stock:5,image:"https://th.bing.com/th/id/R.dd3805ba64d77c6040979ad264b126de?rik=sLa5TJ9LBRzwfA&riu=http%3a%2f%2fhablemosdeflores.com%2fwp-content%2fuploads%2f2017%2f06%2fjazmin.jpg&ehk=%2bYre%2fpfNZo9hERCVjAG6vMWLF97S1r8VXov8z1R7rPU%3d&risl=&pid=ImgRaw&r=planta0"},
         {id:2,name:'rosa',category:"planta",price:300,description:'planta de hermoso color',stock:6,image:"../images/rosa.jpg"},
         {id:3,name:'margarita',category:"planta",price:300,description:'planta ideal para decorar',stock:7,image:"../images/margarita.jpg"},
         {id:4,name:'alegria',category:"planta",price:300,description:'alegria completa en tu hogar',stock:8,image:"../images/alegria.jpg"},

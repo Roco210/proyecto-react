@@ -1,34 +1,37 @@
 import "./style.css"
-import { useEffect, useState } from "react";
-import DataBase from "../../components/DataBase/DataBase"
+import { useEffect,useContext ,useState} from "react";
+/* import DataBase from "../../components/DataBase/DataBase" */
 import ItemsList from "../../components/Itemslist/ItemsList";
 import { useParams } from "react-router-dom";
+import {getFirestore,collection,getDocs} from "firebase/firestore"
+import { cartContext } from "../../context/cartContex";
+
 const ItemListContainer = ({greeting}) => {
 
   const [products, setProducts] =useState ([])
   const {category} =useParams()
+  const { dataBase ,setDataBase}=useContext(cartContext)
+  const db = getFirestore();
+  const querysnapshot =collection(db,"item");
 
-  const getProduct = new Promise ((resolve,reject)=>{
-    setTimeout(()=>{
-      resolve(DataBase); 
-      }, 10);
-    
-  });
+  const getProducts=getDocs(querysnapshot)
   
-  useEffect (()=>{
-    getProduct.then((response)=>{
-      if(category){
-        const filtradoCat = response.filter((p)=>p.category===category)
-        setProducts(filtradoCat)
-      }else(setProducts(response))
-    })
-    .catch(error => console.log("error")) },[category]);
-
+  useEffect(()=>{
+  getProducts.then((res)=>{
+    const data =res.docs.map((p)=>{return {id:p.id,...p.data()}})
+    setDataBase(data)
+    if(category){
+      const filtradoCat =data.filter((p)=>p.category===category)
+      setDataBase(filtradoCat)
+    }
+  }).catch(e=>console.log(e))
+  },[category]);
+console.log(dataBase)
 
 return (
   <div>
     
-    <ItemsList productos={products}/>
+    <ItemsList productos={dataBase}/>
   </div>
 ); }
 export default ItemListContainer;

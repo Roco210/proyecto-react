@@ -1,5 +1,6 @@
-import ItemCount from "../ItemCount/ItemCount"
-import "./style.css"
+import ItemCount from "../ItemCount/ItemCount";
+import "./style.css";
+
 
 const ItemDetail = ({prod}) => {
   console.log(prod.price)
