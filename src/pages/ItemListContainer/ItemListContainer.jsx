@@ -1,14 +1,13 @@
 import "./style.css"
-import { useEffect,useContext ,useState} from "react";
+import { useEffect,useContext ,} from "react";
 /* import DataBase from "../../components/DataBase/DataBase" */
 import ItemsList from "../../components/Itemslist/ItemsList";
 import { useParams } from "react-router-dom";
 import {getFirestore,collection,getDocs} from "firebase/firestore"
 import { cartContext } from "../../context/cartContex";
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
 
-  const [products, setProducts] =useState ([])
   const {category} =useParams()
   const { dataBase ,setDataBase}=useContext(cartContext)
   const db = getFirestore();

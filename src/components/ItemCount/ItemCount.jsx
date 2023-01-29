@@ -2,8 +2,9 @@ import "./style.css"
 import { useState } from "react";
 
 
-const ItemCount = () => {
-  const stock=10
+const ItemCount = ({detalle}) => {
+  const {stock} =detalle
+  console.log(stock)
   const [counter,setCounter] =useState(0);
   const suma =()=>{
     if(stock ===counter){

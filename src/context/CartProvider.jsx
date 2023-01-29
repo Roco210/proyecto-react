@@ -4,7 +4,8 @@ import { cartContext } from "./cartContex";
 
 
 const CartProvider = ({children}) => {
-  const[dataBase,setDataBase]=useState()
+  const[dataBase,setDataBase]=useState([])
+  const[product,setProduct]=useState({})
   const [cart,setCart]=useState([])
   const addItem = (item, quantity)=>{
     const newProduct= {
@@ -15,7 +16,7 @@ const CartProvider = ({children}) => {
     };
     setCart(...cart,newProduct)
   };
-  return (<cartContext.Provider value={{cart, addItem, dataBase ,setDataBase}}>
+  return (<cartContext.Provider value={{cart, addItem, dataBase ,setDataBase,product,setProduct }}>
         {children}
     </cartContext.Provider>)
   
