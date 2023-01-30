@@ -1,11 +1,19 @@
 import "./style.css"
 import { useState } from "react";
+import { useContext } from "react";
+import { cartContext } from "../../context/cartContex";
+
 
 
 const ItemCount = ({detalle}) => {
+
   const {stock} =detalle
-  console.log(stock)
   const [counter,setCounter] =useState(0);
+  
+  const{addItem}=useContext(cartContext)
+  const reset = ()=>{
+    addItem(detalle, counter)
+    setCounter(0)}
   const suma =()=>{
     if(stock ===counter){
       return;
@@ -28,9 +36,8 @@ const ItemCount = ({detalle}) => {
         <button onClick={suma}>+</button>
       </div>
       <div>
-        <button> Agregar Carrito</button>
+        <button onClick={()=>reset()}> Agregar Carrito</button>
       </div>
-      
     </div>
     
   );

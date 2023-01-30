@@ -25,7 +25,7 @@ const ItemListContainer = () => {
     }
   }).catch(e=>console.log(e))
   },[category]);
-console.log(dataBase)
+
 
 return (
   <div>

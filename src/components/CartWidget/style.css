@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: center;
 }
-.cart > img {
+.cart > a > img {
     width:30px;
     height: 30px;
     margin: 10px;

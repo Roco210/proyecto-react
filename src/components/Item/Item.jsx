@@ -1,11 +1,8 @@
 import "./style.css"
 import { Link } from "react-router-dom";
-import { cartContext } from "../../context/cartContex";
-import { useContext } from "react";
-
+import ItemCount from "../ItemCount/ItemCount";
 
 const Item = ({producto}) => {
-  const conte =useContext(cartContext)
  
   return ( 
     <li className="card" >
@@ -15,6 +12,7 @@ const Item = ({producto}) => {
         <div>${producto.price}</div>
         <button>Detalle</button>
       </Link>
+      <ItemCount detalle={producto}/>
     </li>
   )
 };
