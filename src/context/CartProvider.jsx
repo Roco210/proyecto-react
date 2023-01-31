@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createRoutesFromElements } from "react-router";
 import { cartContext } from "./cartContex";
 
 
@@ -29,10 +30,18 @@ const CartProvider = ({children}) => {
       setCart(cartNew)
       console.log(cart)
     };
+
     const initValue= init+1;
     setInit(initValue);
     console.log(init);
   };
+  
+  const cartRest =(item)=>{
+    const finder = cart.find((p)=>p.id ===item.id)
+    cart.find((p)=>p.id ===item.id)
+  if(finder){
+    finder.quantity=finder.quantity-1;}}
+
 
 
   const quantityProdsCart = (items)=>{
@@ -40,7 +49,9 @@ const CartProvider = ({children}) => {
       return total;
   };
 
-  return (<cartContext.Provider value={{cart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init}}>
+ 
+
+  return (<cartContext.Provider value={{cart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init,cartRest}}>
         {children}
     </cartContext.Provider>)
   

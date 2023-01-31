@@ -8,7 +8,7 @@
     border: solid ;
 }
 
-.cardCart > img{
+.cardCart >div> img{
     height: 100px;
     width: 100px;
     border-radius: 20px;
