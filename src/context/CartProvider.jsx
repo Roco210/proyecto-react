@@ -7,6 +7,7 @@ const CartProvider = ({children}) => {
   const[dataBase,setDataBase]=useState([])
   const[product,setProduct]=useState({})
   const [cart,setCart]=useState([])
+  const[init,setInit]=useState(0)
   
   const addItem = (item, quantity)=>{
     
@@ -27,9 +28,19 @@ const CartProvider = ({children}) => {
       const cartNew =[...cart, newProduct]
       setCart(cartNew)
       console.log(cart)
-    }
+    };
+    const initValue= init+1;
+    setInit(initValue);
+    console.log(init);
   };
-  return (<cartContext.Provider value={{cart, addItem, dataBase ,setDataBase,product,setProduct }}>
+
+
+  const quantityProdsCart = (items)=>{
+      const total = items.reduce((prev,p)=>prev+p.quantity,0);
+      return total;
+  };
+
+  return (<cartContext.Provider value={{cart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init}}>
         {children}
     </cartContext.Provider>)
   
