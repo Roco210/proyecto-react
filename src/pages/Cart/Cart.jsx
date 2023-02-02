@@ -15,14 +15,11 @@ const Cart = () => {
             setTp(totalPrice)
         
       },[init])
-    const valor =cart.lenght
-    
-    /* return (
-        
 
-    ) */
-    if(cart.lenght==0){
-        return <h1>Compra perra</h1>
+
+
+    if(cart.length==0){
+        return <h1>Tu carrito esta vacio</h1>
     }else{
     return(
 <ul>
