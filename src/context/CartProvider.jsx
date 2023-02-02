@@ -22,25 +22,34 @@ const CartProvider = ({children}) => {
     };
     const finder = cart.find((p)=>p.id ===item.id)
     if(finder){
-      console.log(finder)
       finder.quantity+=quantity
-      console.log(finder)
     }else{
       const cartNew =[...cart, newProduct]
       setCart(cartNew)
-      console.log(cart)
     };
 
     const initValue= init+1;
     setInit(initValue);
-    console.log(init);
+
   };
   
-  const cartRest =(item)=>{
-    const finder = cart.find((p)=>p.id ===item.id)
-    cart.find((p)=>p.id ===item.id)
-  if(finder){
-    finder.quantity=finder.quantity-1;}}
+  const rest = (x)=>{
+    const finder = cart.find((p)=>p.id===x.id)
+    if(finder){addItem(x,-1)}
+    
+  }
+
+  const plus = (x)=>{
+    const finder = cart.find((p)=>p.id===x.id)
+    if(finder){addItem(x,1)}
+    
+  }
+
+  const remove =(x)=>{
+    /* const finder = cart.find((p)=>p.id===x.id)
+    if(!finder){addItem(x,0)} */
+    console.log(x)
+  }
 
 
 
@@ -51,7 +60,7 @@ const CartProvider = ({children}) => {
 
  
 
-  return (<cartContext.Provider value={{cart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init,cartRest}}>
+  return (<cartContext.Provider value={{cart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init,rest,plus,remove}}>
         {children}
     </cartContext.Provider>)
   
