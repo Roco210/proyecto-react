@@ -3,7 +3,7 @@ import { cartContext } from "../../context/cartContex";
 import "./style.css"
 
 const Cart = () => {
-    const { cart,rest,plus,init,remove} = useContext(cartContext);
+    const { cart,rest,plus,init,remove,setCart} = useContext(cartContext);
     
     const[tp,setTp]=useState();
     useEffect(()=>{
@@ -13,8 +13,9 @@ const Cart = () => {
         };
             const totalPrice=total(cart)
             setTp(totalPrice)
-        
-      },[init])
+            console.log(cart)
+      },[init,cart])
+    
 
 
 

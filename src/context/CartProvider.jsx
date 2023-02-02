@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { createRoutesFromElements } from "react-router";
 import { cartContext } from "./cartContex";
 
 
@@ -11,44 +10,53 @@ const CartProvider = ({children}) => {
   const[init,setInit]=useState(0)
   
   const addItem = (item, quantity)=>{
-    
     const newProduct= {
       id:item.id,
       name:item.title,
       price:item.price,
       quantity:quantity,
       category:item.category,
-      image:item.image
+      image:item.image,
+      stock:item.stock
     };
-    const finder = cart.find((p)=>p.id ===item.id)
-    if(finder){
-      finder.quantity+=quantity
-    }else{
+      const finder = cart.find((p)=>p.id ===item.id)
+   
+      if(finder){
+        finder.quantity+=quantity
+      
+    }
+    
+  else{
       const cartNew =[...cart, newProduct]
       setCart(cartNew)
     };
-
     const initValue= init+1;
     setInit(initValue);
 
   };
   
+
   const rest = (x)=>{
-    const finder = cart.find((p)=>p.id===x.id)
-    if(finder){addItem(x,-1)}
-    
+    if(x.quantity>0){
+      const finder = cart.find((p)=>p.id===x.id)
+      if(finder){addItem(x,-1)}
+      
+    }
+   
   }
 
   const plus = (x)=>{
-    const finder = cart.find((p)=>p.id===x.id)
-    if(finder){addItem(x,1)}
+    if(x.quantity<x.stock){
+      const finder = cart.find((p)=>p.id===x.id)
+      if(finder){addItem(x,1)}
+    }
+    
     
   }
 
   const remove =(x)=>{
-    /* const finder = cart.find((p)=>p.id===x.id)
-    if(!finder){addItem(x,0)} */
-    console.log(x)
+    setCart (cart.filter((p)=>p.id!==x.id))
+    
   }
 
 

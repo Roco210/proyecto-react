@@ -11,9 +11,14 @@ const ItemCount = ({detalle}) => {
   const [counter,setCounter] =useState(0);
   
   const{addItem}=useContext(cartContext)
+  
+ 
   const reset = ()=>{
+
     addItem(detalle, counter)
-    setCounter(0)}
+    setCounter(0)
+    }
+
   const suma =()=>{
     if(stock ===counter){
       return;

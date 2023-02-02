@@ -12,7 +12,7 @@ const CartWidget = () => {
   useEffect(()=>{
     const total=quantityProdsCart(cart)
     setValue(total)
-  },[init])
+  },[init,cart])
   
   return (
     <div className="cart">
