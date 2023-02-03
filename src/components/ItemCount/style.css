@@ -13,3 +13,8 @@
     height: 30px;
     align-items: center;
 }
+.endShop{
+    display: flex;
+    flex-direction: row;
+    color: red;
+}

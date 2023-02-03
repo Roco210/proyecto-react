@@ -37,27 +37,25 @@ const CartProvider = ({children}) => {
   
 
   const rest = (x)=>{
-    if(x.quantity>0){
+    console.log(x)
+    if(x.quantity>1){
       const finder = cart.find((p)=>p.id===x.id)
-      if(finder){addItem(x,-1)}
-      
-    }
-   
-  }
+      if(finder.quantity>1){addItem(x,-1)}}
+      else{remove(x)}
+    
+  };
 
   const plus = (x)=>{
     if(x.quantity<x.stock){
       const finder = cart.find((p)=>p.id===x.id)
       if(finder){addItem(x,1)}
     }
-    
-    
-  }
+  };
 
   const remove =(x)=>{
     setCart (cart.filter((p)=>p.id!==x.id))
-    
-  }
+
+  };
 
 
 
@@ -66,7 +64,9 @@ const CartProvider = ({children}) => {
       return total;
   };
 
- 
+  
+  
+  
 
   return (<cartContext.Provider value={{cart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init,rest,plus,remove}}>
         {children}

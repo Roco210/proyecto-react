@@ -6,10 +6,34 @@
     margin: 20px;
     border-radius: 20px;
     border: solid ;
+    font-weight: bold;
 }
 
 .cardCart >div> img{
     height: 100px;
     width: 100px;
     border-radius: 20px;
+    border: solid black;
+    margin:10px;
 }
+
+.endShop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.selectQ{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.cartEmpty{
+    text-align: center;
+    margin-top: 90px;
+    font-size: 70px;
+    color:rgb(48, 82, 156);
+}
+
