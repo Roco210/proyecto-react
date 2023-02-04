@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { cartContext } from "../../context/cartContex";
 import { useEffect } from "react";
+import swal from "sweetalert";
 
 
 
@@ -22,7 +23,7 @@ const ItemCount = ({detalle}) => {
     if(fil ){
       if(fil.quantity+counter>stock){
     setCounter(0)
-    alert(`No tenemos tantas unidades nos quedan ${stock-fil.quantity}`)}
+    swal(`No tenemos tantas unidades nos quedan ${stock-fil.quantity}`,"","error")}
     else{addItem(detalle,counter)
       setCounter(0)}}else
       addItem(detalle,counter)
@@ -34,7 +35,8 @@ const ItemCount = ({detalle}) => {
       return;
     }
     setCounter (counter+1);
-    console.log(fil)
+    
+
     };
   const menos =()=>{
     if (counter<=0){

@@ -4,11 +4,14 @@ import { cartContext } from "./cartContex";
 
 
 const CartProvider = ({children}) => {
-  const[dataBase,setDataBase]=useState([])
-  const[product,setProduct]=useState({})
-  const [cart,setCart]=useState([])
-  const[init,setInit]=useState(0)
-  
+  const[dataBase,setDataBase]=useState([]);
+  const[product,setProduct]=useState({});
+  const [cart,setCart]=useState([]);
+  const[init,setInit]=useState(0);
+  const [totalCart, setTotalCart] = useState(0);
+
+
+
   const addItem = (item, quantity)=>{
     const newProduct= {
       id:item.id,
@@ -57,7 +60,10 @@ const CartProvider = ({children}) => {
 
   };
 
-
+  const tc =(x)=>{
+      const price = x.reduce((prev, p) => prev + p.quantity * p.price, 0)
+      setTotalCart (price);
+  };
 
   const quantityProdsCart = (items)=>{
       const total = items.reduce((prev,p)=>prev+p.quantity,0);
@@ -68,7 +74,7 @@ const CartProvider = ({children}) => {
   
   
 
-  return (<cartContext.Provider value={{cart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init,rest,plus,remove}}>
+  return (<cartContext.Provider value={{cart,setCart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init,rest,plus,remove,tc,totalCart}}>
         {children}
     </cartContext.Provider>)
   

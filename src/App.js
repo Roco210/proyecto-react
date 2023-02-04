@@ -6,7 +6,7 @@ import ItemListContainer from './pages/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer';
 import CartProvider from './context/CartProvider';
 import Cart from './pages/Cart/Cart';
-import User from './pages/User/User';
+import Admin  from './pages/Admin/Admin';
 
 
 
@@ -22,7 +22,7 @@ function App() {
             <Route path="category/:category" element={<ItemListContainer/>}/>
             <Route path='item/:id' element={<ItemDetailContainer/>}/>
             <Route path='cart' element={<Cart/>}/>
-            <Route path='user' element={<User/>} />
+            <Route path='admin' element={<Admin/>} />
           </Routes>
           </CartProvider>
       </BrowserRouter>
