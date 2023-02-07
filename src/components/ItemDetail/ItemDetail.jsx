@@ -6,10 +6,10 @@ const ItemDetail = ({prod}) => {
   return (
     <div className="cardDetail">
       <img src={prod.image} alt={prod.name} />
-      <h1>{prod.name}</h1>
+      <h1>{prod.title}</h1>
       <p>{prod.description}</p>
       <h3>$ {prod.price} </h3>
-      <ItemCount detalle={prod}/>
+      <ItemCount detalle={prod} className="itemCount"/>
     </div>
   )
 }

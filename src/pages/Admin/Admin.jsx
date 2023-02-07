@@ -7,11 +7,12 @@ export const Admin = () => {
 
     const{cart}=useContext(cartContext)
     const [newProduct,setNewProduct]= useState(
-      {name: '',
-      price: '',
+      {title: '',
+      price: 0,
       category:'',
-      stock:'',
-      img: ''});
+      stock:0,
+      description:" ",
+      image: ''});
     
 
     const db =getFirestore()
@@ -25,9 +26,7 @@ export const Admin = () => {
 
 
     const createProduct = () => {
-
       const querySnapshot = collection(db, "item")
-      
       addDoc(querySnapshot, newProduct).then(
           (response) => {
                   swal({
@@ -45,17 +44,19 @@ export const Admin = () => {
     <div>
       <form >
           nombre:
-          <input type="text" name="name" placeholder="nombre" value={newProduct.name}  onChange ={(e)=>{formulario(e)}}/>
+          <input type="text" name="title" placeholder="nombre" value={newProduct.title}  onChange ={(e)=>{formulario(e)}}/>
           stock:
-          <input type="text" name="stock" placeholder="stock" value={newProduct.stock} onChange ={(e)=>{formulario(e)}}/>
+          <input type="number" name="stock" placeholder="stock" value={newProduct.stock} onChange ={(e)=>{formulario(e)}}/>
           price:
-          <input type="text" name="price" placeholder="price" value={newProduct.price} onChange ={(e)=>{formulario(e)}}/>
+          <input type="number" name="price" placeholder="price" value={newProduct.price} onChange ={(e)=>{parseInt(formulario(e))}}/>
           category
           <input type="text" name="category" placeholder="category" value={newProduct.category} onChange ={(e)=>{formulario(e)}}/>
-          img:
-          <input type="text" name="img" placeholder="img" value={newProduct.img} onChange ={(e)=>{formulario(e)}}/>
+          imagen:
+          <input type="text" name="image" placeholder="image" value={newProduct.img} onChange ={(e)=>{formulario(e)}}/>
+          Descripcion:
+          <input type="text" name="description" placeholder="description" value={newProduct.description} onChange ={(e)=>{formulario(e)}}/>
       </form>
-      <button onClick={()=>{console.log (newProduct)}}>enviar producto</button>
+      <button onClick={()=>{createProduct()}}>enviar producto</button>
     </div>
 
 

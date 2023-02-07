@@ -1,62 +1,21 @@
 import { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { cartContext } from "../../context/cartContex";
 import "./style.css"
 import swal from 'sweetalert';
-import { addDoc, collection, getFirestore, doc, updateDoc } from "firebase/firestore";
-import { async } from "@firebase/util";
+import CartForm from "../../components/CartForm/CartForm";
+
 
 
 const Cart = () => {
-    const { cart, rest, plus, init, remove, tc, totalCart , setCart} = useContext(cartContext);
-    const [order, setOrder] = useState({})
-    const db = getFirestore();
+    const { cart, rest, plus, init, remove, tc, totalCart} = useContext(cartContext);
+  
+
 
     useEffect(() => {
         tc(cart)
     }, [init, cart]);
 
-
-    
-    useEffect(() => {
-        setOrder(
-            {
-                buyer: {
-                    name: "ricardo",
-                    phone: "15687733",
-                    mail: "algo@gmail.com"
-                },
-                items: cart.map((p)=>{
-                    const {name, quantity, price, id}=p
-                    return {name, quantity, price, id}
-                }),
-                total: totalCart,
-            })
-    }, [totalCart]);
-
-
-    const createOrder = async() => {
-        const querySnapshot = collection(db, "orders")
-        await addDoc(querySnapshot, order).then(
-            (response) => {
-                updateStock();
-                    swal({
-                        title: "Orden creada",
-                        text: `El codigo de tu orden es ${response.id}`,
-                        icon: "success",
-                        button: "Aceptar",
-                    });}
-               ).catch((e) => console.log(e))
-        await setCart([]);
-    };
-
-    const updateStock =()=>{
-        cart.forEach((p)=>{
-            const querySnapshot = doc(db, "item",p.id);
-            updateDoc(querySnapshot,{stock:p.stock-p.quantity}).then().catch(e=>console.log(e))
-    });
-
-    };
 
     if (cart.length == 0) {
         return <h1 className="cartEmpty">Tu carrito esta vacio <br /> :( </h1>
@@ -90,7 +49,7 @@ const Cart = () => {
                 ))}
                 <div className="endShop">
                     <h2>Total compra ${totalCart}</h2>
-                    <Link to="/"> <button onClick={() => createOrder() }> Finalizar compra</button> </Link> 
+                   <Link to="/final"><button> Finalizar compra</button></Link>
                 </div>
 
             </ul>

@@ -1,13 +1,13 @@
 
 import './App.css';
-import {BrowserRouter,Route,Routes} from "react-router-dom";
+import {BrowserRouter,Form,Route,Routes} from "react-router-dom";
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './pages/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer';
 import CartProvider from './context/CartProvider';
 import Cart from './pages/Cart/Cart';
 import Admin  from './pages/Admin/Admin';
-
+import CartForms from './components/CartForm/CartForm';
 
 
 
@@ -22,6 +22,7 @@ function App() {
             <Route path="category/:category" element={<ItemListContainer/>}/>
             <Route path='item/:id' element={<ItemDetailContainer/>}/>
             <Route path='cart' element={<Cart/>}/>
+            <Route path="final" element={<CartForms/>}/>
             <Route path='admin' element={<Admin/>} />
           </Routes>
           </CartProvider>
@@ -29,5 +30,6 @@ function App() {
       
   );  
 }
+
 
 export default App;

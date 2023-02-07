@@ -13,7 +13,7 @@ const ItemCount = ({detalle}) => {
   const [counter,setCounter] =useState(0);
   const [fil,setfil] =useState();
   const{addItem,cart,init}=useContext(cartContext)
-  
+  const stockN = parseInt(stock)
   useEffect(()=>{
     const finder= cart.find((x)=>x.id==detalle.id)
     setfil(finder)
@@ -21,9 +21,9 @@ const ItemCount = ({detalle}) => {
 
   const reset = ()=>{
     if(fil ){
-      if(fil.quantity+counter>stock){
+      if(fil.quantity+counter>stockN){
     setCounter(0)
-    swal(`No tenemos tantas unidades nos quedan ${stock-fil.quantity}`,"","error")}
+    swal(`No tenemos tantas unidades nos quedan ${stockN-fil.quantity}`,"","error")}
     else{addItem(detalle,counter)
       setCounter(0)}}else
       addItem(detalle,counter)
@@ -31,7 +31,7 @@ const ItemCount = ({detalle}) => {
     }
 
   const suma =()=>{
-    if(stock ===counter){
+    if(stockN ===counter){
       return;
     }
     setCounter (counter+1);

@@ -6,11 +6,15 @@
     flex-direction: column;
     display: table-column;
     text-align: center;
+    
     border-radius: 10px;
+    width: 120px;
+    
 }
 .card > a> img{
     height: 100px;
     width: 100px;
+    border-radius: 10px;
     
 }
 

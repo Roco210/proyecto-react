@@ -8,7 +8,7 @@ const Item = ({producto}) => {
     <li className="card" >
       <Link  to={`/item/${producto.id}`}>
         <img src={producto.image} alt={producto.name} />
-        <div>{producto.name}</div>
+        <div>{producto.title}</div>
         <div>${producto.price}</div>
         <button>Detalle</button>
       </Link>
