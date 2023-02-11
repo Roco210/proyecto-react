@@ -70,7 +70,7 @@ const CartProvider = ({children}) => {
       return total;
   };
   
-  useEffect(()=>{setMensaje(`https://wa.me/1568255477?text=${encodeURIComponent(`Hola CrazyLove quiero hacer un pedio, este es el detalle: ${cart.map((p)=>p.title + " "+ p.quantity + " unidades total: $ " + p.price* p.quantity )} TOTAL DE LA COMPRA: ${totalCart}`)}`)},[totalCart]);
+  useEffect(()=>{setMensaje(`https://wa.me/1568255477?text=${encodeURIComponent(`Hola CrazyLove quiero hacer un pedio, este es el detalle: ${cart.map((p)=>p.title + " "+ p.quantity + " unidades total: $ " + p.price* p.quantity )} TOTAL DE LA COMPRA: ${totalCart}`)}`)},[totalCart,cart]);
 
   // usuarios
   
@@ -89,7 +89,7 @@ const CartProvider = ({children}) => {
     mailCheck:"",
 });
 
-useEffect(()=>{if(user===null){userLog()}},[window])
+useEffect(()=>{if(user===null){userLog()}},[user])
 
 
 const [act, setAct] = useState(null)
