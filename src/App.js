@@ -8,6 +8,7 @@ import CartProvider from './context/CartProvider';
 import Cart from './pages/Cart/Cart';
 import Admin  from './pages/Admin/Admin';
 import CartForms from './components/CartForm/CartForm';
+import Users from './pages/Users/Users';
 
 
 
@@ -24,6 +25,7 @@ function App() {
             <Route path='cart' element={<Cart/>}/>
             <Route path="final" element={<CartForms/>}/>
             <Route path='admin' element={<Admin/>} />
+            <Route path='user' element={<Users/>}/>
           </Routes>
           </CartProvider>
       </BrowserRouter>

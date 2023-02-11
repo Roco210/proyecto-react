@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom"
 import CartWidget from "../CartWidget/CartWidget"
+import UserLog from "../UserLog/UserLog"
 import "./style.css"
-<style className="css"></style>
+
 const NavBar = () => {
+  
   return (
     <div className="navBar">
         <div>
@@ -18,6 +20,7 @@ const NavBar = () => {
                 <li><NavLink to="/category/planta" className={({ isActive }) => isActive ? "active": "inactive"}>PLANTA</NavLink></li>
             </ul>
         </div>
+        <div><UserLog/></div>
         <div><CartWidget/></div>
     </div>
     

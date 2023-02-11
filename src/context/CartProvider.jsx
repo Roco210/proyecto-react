@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { cartContext } from "./cartContex";
-
+import { getAuth} from "firebase/auth";
 
 
 const CartProvider = ({children}) => {
@@ -70,11 +70,27 @@ const CartProvider = ({children}) => {
       return total;
   };
 
-  
-  
-  
 
-  return (<cartContext.Provider value={{order, setOrder, cart,setCart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init,rest,plus,remove,tc,totalCart}}>
+  // usuarios
+  
+  const [user, setUser] = useState(null)
+
+  const [userData, setUserData] = useState({
+    mail: "",
+    password: "",
+    name:"",
+    lastName:"",
+    adress: "",
+    mailCheck:"",
+});
+
+const auth = getAuth();
+
+const [act, setAct] = useState(null)
+
+  //retorno
+
+  return (<cartContext.Provider value={{act, setAct, auth,user, setUser,userData, setUserData,order, setOrder, cart,setCart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init,rest,plus,remove,tc,totalCart}}>
         {children}
     </cartContext.Provider>)
   

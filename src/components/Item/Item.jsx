@@ -12,7 +12,7 @@ const Item = ({producto}) => {
         <div>${producto.price}</div>
         <button>Detalle</button>
       </Link>
-      <ItemCount detalle={producto}/>
+      <ItemCount detalle={producto} />
     </li>
   )
 };

@@ -1,0 +1,11 @@
+.userLogImg{
+    width:30px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.userLog{
+    display: flex;
+    flex-direction: row;
+}

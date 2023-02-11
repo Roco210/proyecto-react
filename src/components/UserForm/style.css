@@ -1,0 +1,24 @@
+.userForms{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: solid;
+}
+
+
+.userFormsInputs{
+
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+
+    
+
+}
+
+
