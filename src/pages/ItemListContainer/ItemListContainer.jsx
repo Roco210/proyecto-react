@@ -9,7 +9,7 @@ import { cartContext } from "../../context/cartContex";
 const ItemListContainer = () => {
 
   const {category} =useParams()
-  const { dataBase ,setDataBas}=useContext(cartContext)
+  const { dataBase ,setDataBase}=useContext(cartContext)
 
   
 
