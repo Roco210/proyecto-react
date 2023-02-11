@@ -11,7 +11,7 @@ const CartProvider = ({children}) => {
   const[init,setInit]=useState(0);
   const [totalCart, setTotalCart] = useState(0);
   const [order, setOrder] = useState({})
-
+  const[mensaje,setMensaje]=useState("")
 
   const addItem = (item, quantity)=>{
     const newProduct= {
@@ -69,7 +69,8 @@ const CartProvider = ({children}) => {
       const total = items.reduce((prev,p)=>prev+p.quantity,0);
       return total;
   };
-
+  
+  useEffect(()=>{setMensaje(`https://wa.me/1568255477?text=${encodeURIComponent(`Hola CrazyLove quiero hacer un pedio, este es el detalle: ${cart.map((p)=>p.title + " "+ p.quantity + " unidades total: $ " + p.price* p.quantity )} TOTAL DE LA COMPRA: ${totalCart}`)}`)},[totalCart]);
 
   // usuarios
   
@@ -95,7 +96,7 @@ const [act, setAct] = useState(null)
 
   //retorno
 
-  return (<cartContext.Provider value={{userLog,act, setAct,user, setUser,userData, setUserData,order, setOrder, cart,setCart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init,rest,plus,remove,tc,totalCart}}>
+  return (<cartContext.Provider value={{mensaje,userLog,act, setAct,user, setUser,userData, setUserData,order, setOrder, cart,setCart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init,rest,plus,remove,tc,totalCart}}>
         {children}
     </cartContext.Provider>)
   

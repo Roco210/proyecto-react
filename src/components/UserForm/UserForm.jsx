@@ -86,6 +86,8 @@ const UserForm = ({ formType }) => {
         }).catch((error) => {
             if (error.code === "auth/wrong-password") { swal("clave o correo incorrecto") }
             if (error.code === "auth/too-many-requests") { swal("realizaste muchos intentos aguarda y vuelve a intentarlo") }
+            if (error.code === "auth/invalid-email") { swal("mail erroneo") }
+            
             setAct(null)
             setUser(null)
             const errorCode = error.code;
@@ -143,7 +145,7 @@ const UserForm = ({ formType }) => {
                         <input type="password" name="password" placeholder="password" value={userData.password} onChange={(x) => { formulario(x) }} />
                     </div>
                 </form>
-                <button onClick={() => { if (buttonCheck) { registrer() } else { swal("Por favor complete todos los datos") } }}>check</button>
+                <button onClick={() => { if (buttonCheck) { registrer() } else { swal("Por favor complete todos los datos") } }}>REGISTRARME</button>
 
             </div>
         )
@@ -159,7 +161,7 @@ const UserForm = ({ formType }) => {
                         <p>CONTRASEÑA:</p>
                         <input type="password" name="password" placeholder="password" value={userData.password} onChange={(x) => { formulario(x) }} />
                     </div>
-                    <button onClick={() => { logIn() }}>check</button>
+                    <button onClick={() => { logIn() }}>INGRESAR</button>
 
                 </form>
 
@@ -167,7 +169,7 @@ const UserForm = ({ formType }) => {
     } if (user?.access === "admin" && formType === "LogOut") {
         return (
             <>
-            <button onClick={() => { logOut() }}>CERAR SECION</button>
+            <button onClick={() => { logOut() }}>CERAR SESION</button>
             <Link to="/admin"><button>ADMIN</button></Link>
             </>
             
@@ -176,7 +178,7 @@ const UserForm = ({ formType }) => {
     }
     if (formType === "LogOut" ) {
         return (
-            <button onClick={() => { logOut() }}>CERAR SECION</button>
+            <button onClick={() => { logOut() }}>CERAR SESION</button>
         )
     }
 }

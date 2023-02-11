@@ -2,20 +2,19 @@ import swal from 'sweetalert';
 import { addDoc, collection, getFirestore, doc, updateDoc } from "firebase/firestore";
 import { useContext,useEffect, useState } from 'react';
 import { cartContext } from '../../context/cartContex';
-import { Navigate } from 'react-router';
-import { Link } from 'react-router-dom';
+import "./style.css"
+
 
 
 const CartForms = () => {
-const { cart, totalCart , setCart,order, setOrder,user} = useContext(cartContext);
+const { cart, totalCart , setCart,order, setOrder,user, mensaje} = useContext(cartContext);
+const[finalizar,setfinalizar]=useState("no")
+
 const[visit,setVisit]=useState(
     {name:" ",mail:" ",adress:" ",phone:"",} 
   
 )
-
-
-
-const db =getFirestore
+const db =getFirestore();
 const createOrder = () => {
   const querySnapshot = collection(db, "orders")
 addDoc(querySnapshot, order).then(
@@ -26,7 +25,9 @@ addDoc(querySnapshot, order).then(
              text: `El codigo de tu orden es ${response.id}`,
              icon: "success",
              button: "Aceptar",
-         });}
+         });
+         }
+         
     ).catch((e) => console.log(e))
   setCart([]);};
 
@@ -38,15 +39,17 @@ const updateStock =()=>{
 });};
 
 
+
 const formulario =(x)=>{
     setVisit({
         ...visit,
         [x.target.name]:x.target.value
       })
     }
+    
 
 
-
+    console.log(mensaje)
 useEffect(() => {
   setOrder(
       {
@@ -64,11 +67,17 @@ useEffect(() => {
       })
 }, [totalCart]);
   
-const endShop=()=>{
-  /* createOrder();
-  updateStock(); */
-  
+useEffect(()=>{const{phone,mail,adress,name}=visit
+if(user && phone!==""){setfinalizar("si")
+}if (phone!==""&&mail!==""&&adress!==""&&name!==""){setfinalizar("si")}
+else{setfinalizar("no")}},[visit])
+
+
+  const endShop=()=>{
+    createOrder();
+    swal("Gracias por su compra").then((res)=>{if(res){window.location.assign("/")}})
 }
+  
 
   return (
     <div><h1>Finalizar compra</h1>
@@ -82,7 +91,7 @@ const endShop=()=>{
         <p>TELEFONO:</p>
         <input type="number" name='phone' value={null}  onChange={(x)=>formulario(x)}></input>
       </form>
-      <button onClick={()=>{endShop()}}><Link to="/www.google.com">scscsc</Link>  </button> 
+      <button onClick={()=>{endShop()}} className={finalizar} ><a href={mensaje} target="_blank"> FINALIZAR COMPRA</a></button> 
     </div>
   )
 };
