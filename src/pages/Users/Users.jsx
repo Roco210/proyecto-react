@@ -1,11 +1,11 @@
-import { useState,useContext } from "react"
+import { useContext } from "react"
 import { cartContext } from "../../context/cartContex";
 import "./style.css"
 import UserForm from "../../components/UserForm/UserForm";
 
 
 const Users = () => {
-    const {user,setUser, userData, setUserData,act, setAct}=useContext(cartContext)
+    const {user,act, setAct}=useContext(cartContext)
     console.log(act)
     if (user === null) {
         return (

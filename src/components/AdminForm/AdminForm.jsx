@@ -1,5 +1,4 @@
-import { useContext, useState, useEffect } from "react"
-import { cartContext } from "../../context/cartContex"
+import { useState, useEffect } from "react"
 import { getFirestore, addDoc, collection, doc, getDocs,updateDoc,deleteDoc} from "firebase/firestore"
 import swal from "sweetalert";
 
@@ -7,11 +6,7 @@ import "./style.css"
 
 export const Admin = ({ action }) => {
 
-
     const [listProd, setListProd] = useState([]);
-
-    const[findData,setFindData] =useState()
-    const { user } = useContext(cartContext)
     const [newProduct, setNewProduct] = useState(
         {
             title: '',
@@ -78,13 +73,13 @@ export const Admin = ({ action }) => {
             console.log(data)
             setListProd(data)
         })
-    }, [prodMod,action==="create"]);
+    }, [prodMod,action,getProducts]);
 
 
 
     const bttSerch = (x) => {
 
-        const serchProd = listProd.find((p) => p.title.toUpperCase() == x)
+        const serchProd = listProd.find((p) => p.title.toUpperCase() === x)
         if(serchProd){setProdMod(serchProd)}else{swal("el producto que buscas no existe")}
         
     }

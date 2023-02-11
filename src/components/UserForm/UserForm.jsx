@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import { cartContext } from '../../context/cartContex';
-import { getFirestore, collection, addDoc, doc, getDocs } from 'firebase/firestore';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut, setPersistence, browserSessionPersistence, inMemoryPersistence, GoogleAuthProvider } from "firebase/auth";
+import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence, inMemoryPersistence, GoogleAuthProvider } from "firebase/auth";
 import "./style.css"
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ const UserForm = ({ formType }) => {
         setUserData({ ...userData, [x.target.name]: x.target.value, }
         )
     };
-    const autID = auth.currentUser ? auth.currentUser.uid : "sin usuario"
+    /* const autID = auth.currentUser ? auth.currentUser.uid : "sin usuario" */
     const { name, lastName, mail, adress } = userData
     const userReg = {
         name, lastName, mail, adress, access: null, uid: ""
@@ -37,13 +37,13 @@ const UserForm = ({ formType }) => {
         ).catch((e) => console.log(e))
 
     };
-    const findUser = () => {
+/*     const findUser = () => {
         const getProducts = getDocs(collection(db, "users"))
         getProducts.then((res) => {
             const data = res.docs.map((p) => { return { ...p.data() } })
             const userFind = data.find((p) => p.uid == user.uid)
         }).catch(e => console.log(e))
-    }
+    } */
 
 
 
@@ -61,10 +61,6 @@ const UserForm = ({ formType }) => {
             if (error.code === "auth/email-already-in-use") {
                 swal("El correo ingreado ya existe")
             }
-            /* if (error.code !==null) { swal("error") } */
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode)
         });
 
     }
@@ -79,7 +75,7 @@ const UserForm = ({ formType }) => {
             const getProducts = getDocs(collection(db, "users"))
             getProducts.then((res) => {
                 const data = res.docs.map((p) => { return { ...p.data() } })
-                const userFind = data.find((p) => p.uid == user)
+                const userFind = data.find((p) => p.uid === user)
                 setUser(userFind)
                 localStorage.setItem("user",JSON.stringify(userFind))
             }).catch(e => console.log(e))
