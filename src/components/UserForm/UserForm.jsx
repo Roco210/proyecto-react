@@ -77,20 +77,24 @@ const UserForm = ({ formType }) => {
                 const data = res.docs.map((p) => { return { ...p.data() } })
                 const userFind = data.find((p) => p.uid === user)
                 setUser(userFind)
+                setAct("LogOut")
                 localStorage.setItem("user",JSON.stringify(userFind))
             }).catch(e => console.log(e))
         }).catch((error) => {
             if (error.code === "auth/wrong-password") { swal("clave o correo incorrecto") }
             if (error.code === "auth/too-many-requests") { swal("realizaste muchos intentos aguarda y vuelve a intentarlo") }
             if (error.code === "auth/invalid-email") { swal("mail erroneo") }
+            if (error.code === "auth/user-not-found") { swal("clave o correo incorrecto") }
+
             
-            setAct(null)
+            
+            setAct("logIn")
             setUser(null)
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, errorMessage)
         });
-        setAct("LogOut")
+        
     }
 
 

@@ -75,7 +75,7 @@ else{setfinalizar("no")}},[visit])
 
   const endShop=()=>{
     createOrder();
-    swal("Gracias por su compra").then((res)=>{if(res){window.location.assign("/")}})
+    swal("Gracias por su compra").then((res)=>{if (res){window.location.assign("/")}});
 }
   
 
@@ -91,7 +91,7 @@ else{setfinalizar("no")}},[visit])
         <p>TELEFONO:</p>
         <input type="number" name='phone' value={null}  onChange={(x)=>formulario(x)}></input>
       </form>
-      <button onClick={()=>{endShop()}} className={finalizar} ><a href={mensaje} target="_blank"> FINALIZAR COMPRA</a></button> 
+      <button onClick={()=>{endShop()}} className={finalizar} >sxsxs{/* <a href={mensaje} target="_blank"> FINALIZAR COMPRA</a> */}</button> 
     </div>
   )
 };
