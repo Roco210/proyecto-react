@@ -84,11 +84,11 @@ const UserForm = ({ formType }) => {
                 localStorage.setItem("user",JSON.stringify(userFind))
             }).catch(e => console.log(e))
         }).catch((error) => {
-            if (error.code === "auth/wrong-password") { swal("clave o correo incorrecto") }
+            if (error.code === "auth/wrong-password" || error.code === "auth/user-not-found") { swal("clave o correo incorrecto") }
             if (error.code === "auth/too-many-requests") { swal("realizaste muchos intentos aguarda y vuelve a intentarlo") }
-            if (error.code === "auth/invalid-email") { swal("mail erroneo") }
+            if (error.code === "auth/invalid-email"|| error.code === "auth/internal-error") { swal("mail erroneo") }
             
-            setAct(null)
+            setAct("logIn")
             setUser(null)
             const errorCode = error.code;
             const errorMessage = error.message;
