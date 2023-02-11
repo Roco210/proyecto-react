@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import { json } from "react-router";
 import { cartContext } from "./cartContex";
-import { getAuth} from "firebase/auth";
+
 
 
 const CartProvider = ({children}) => {
@@ -26,7 +27,6 @@ const CartProvider = ({children}) => {
    
       if(finder){
         finder.quantity+=quantity
-      
     }
     
   else{
@@ -73,7 +73,11 @@ const CartProvider = ({children}) => {
 
   // usuarios
   
-  const [user, setUser] = useState(null)
+  
+  const [user, setUser] = useState(null);
+  function userLog(){
+    if(localStorage.getItem("user")){setUser(JSON.parse(localStorage.getItem("user")))}};
+
 
   const [userData, setUserData] = useState({
     mail: "",
@@ -84,13 +88,14 @@ const CartProvider = ({children}) => {
     mailCheck:"",
 });
 
-const auth = getAuth();
+useEffect(()=>{if(user===null){userLog()}},[window])
+
 
 const [act, setAct] = useState(null)
 
   //retorno
 
-  return (<cartContext.Provider value={{act, setAct, auth,user, setUser,userData, setUserData,order, setOrder, cart,setCart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init,rest,plus,remove,tc,totalCart}}>
+  return (<cartContext.Provider value={{userLog,act, setAct,user, setUser,userData, setUserData,order, setOrder, cart,setCart, addItem, dataBase ,setDataBase,product,setProduct, quantityProdsCart,init,rest,plus,remove,tc,totalCart}}>
         {children}
     </cartContext.Provider>)
   

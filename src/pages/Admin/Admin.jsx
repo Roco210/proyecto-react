@@ -1,66 +1,27 @@
-import { useContext, useState } from "react"
-import { cartContext } from "../../context/cartContex"
-import { getFirestore,addDoc, collection } from "firebase/firestore"
-import swal from "sweetalert";
+import { useState } from "react"
+import "./style.css"
+import AdminForm from "../../components/AdminForm/AdminForm"
+
 
 export const Admin = () => {
 
-    const{cart}=useContext(cartContext)
-    const [newProduct,setNewProduct]= useState(
-      {title: '',
-      price: 0,
-      category:'',
-      stock:0,
-      description:" ",
-      image: ''});
-    
-
-    const db =getFirestore()
-        
-    const formulario =(x)=>{
-    setNewProduct({
-        ...newProduct,
-        [x.target.name]:x.target.value
-      })
-    }
-
-
-    const createProduct = () => {
-      const querySnapshot = collection(db, "item")
-      addDoc(querySnapshot, newProduct).then(
-          (response) => {
-                  swal({
-                      title: "Creaste un nuevo producto",
-                      text: `felicidades`,
-                      icon: "success",
-                      button: "Aceptar",
-                  });}
-             ).catch((e) => console.log(e))
-  };
-
+  const[adminAction,setAdminAction]=useState(null)
 
   return (
 
     <div>
-      <form >
-          nombre:
-          <input type="text" name="title" placeholder="nombre" value={newProduct.title}  onChange ={(e)=>{formulario(e)}}/>
-          stock:
-          <input type="number" name="stock" placeholder="stock" value={newProduct.stock} onChange ={(e)=>{formulario(e)}}/>
-          price:
-          <input type="number" name="price" placeholder="price" value={newProduct.price} onChange ={(e)=>{parseInt(formulario(e))}}/>
-          category
-          <input type="text" name="category" placeholder="category" value={newProduct.category} onChange ={(e)=>{formulario(e)}}/>
-          imagen:
-          <input type="text" name="image" placeholder="image" value={newProduct.img} onChange ={(e)=>{formulario(e)}}/>
-          Descripcion:
-          <input type="text" name="description" placeholder="description" value={newProduct.description} onChange ={(e)=>{formulario(e)}}/>
-      </form>
-      <button onClick={()=>{createProduct()}}>enviar producto</button>
+      <div className="keypadAdmin">
+        <button className="userButton" onClick={(x)=>{setAdminAction("create")}}>AGREGAR PRODUCTO</button>
+        <button className="userButton" onClick={(x)=>{setAdminAction("mod")}}>MODIFICAR PRODUCTO</button>
+        <button className="userButton" onClick={(x)=>{setAdminAction("delete")}}>ELIMIAR PRODUCTO</button>
+      </div>
+      <AdminForm action={adminAction}/>
     </div>
 
 
-  )};
+  )
+
+};
 
   export default Admin;
 

@@ -1,0 +1,8 @@
+.keypadAdmin{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.keypadAdmin > .userButton{
+    background-color: beige;
+}

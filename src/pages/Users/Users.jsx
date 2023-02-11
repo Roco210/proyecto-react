@@ -1,6 +1,5 @@
 import { useState,useContext } from "react"
 import { cartContext } from "../../context/cartContex";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut, setPersistence, browserSessionPersistence } from "firebase/auth";
 import "./style.css"
 import UserForm from "../../components/UserForm/UserForm";
 
@@ -22,7 +21,7 @@ const Users = () => {
     return(
     <>
         <div className="keypad">
-            <button className="userButton" onClick={(x) => { setAct("LogOut") }}>Cerrar sesion</button>
+            <button className="userButton" onClick={(x) => { setAct("LogOut") }}>Administrar sesion</button>
         </div>
         <UserForm formType={act} />
     </>)

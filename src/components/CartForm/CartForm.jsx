@@ -2,13 +2,18 @@ import swal from 'sweetalert';
 import { addDoc, collection, getFirestore, doc, updateDoc } from "firebase/firestore";
 import { useContext,useEffect, useState } from 'react';
 import { cartContext } from '../../context/cartContex';
+import { Navigate } from 'react-router';
+import { Link } from 'react-router-dom';
+
 
 const CartForms = () => {
-const { cart, rest, plus, init, remove, tc, totalCart , setCart,order, setOrder} = useContext(cartContext);
+const { cart, totalCart , setCart,order, setOrder,user} = useContext(cartContext);
 const[visit,setVisit]=useState(
-    {name:" ",mail:" "} 
+    {name:" ",mail:" ",adress:" ",phone:"",} 
   
 )
+
+
 
 const db =getFirestore
 const createOrder = () => {
@@ -46,9 +51,10 @@ useEffect(() => {
   setOrder(
       {
           buyer: {
-              name: "ricardo",
-              phone: "15687733",
-              mail: "algo@gmail.com"
+              name: user ?user.name+" "+user.lastName:visit.name,
+              phone: visit.phone,
+              mail: user ?user.mail:visit.mail,
+              adress: user?user.adress:visit.adress
           },
           items: cart.map((p)=>{
               const {title, quantity, price, id}=p
@@ -57,18 +63,26 @@ useEffect(() => {
           total: totalCart,
       })
 }, [totalCart]);
-  const user = {name:"ricardo" }
   
-  console.log(visit)
+const endShop=()=>{
+  /* createOrder();
+  updateStock(); */
+  
+}
 
-  /* user ? user.name : visit.name */
   return (
     <div><h1>Finalizar compra</h1>
       <form onSubmit={x=>x.preventDefault}>
-        nombre:
-        <input type="text" name='name' value={user.name ? user.name : visit.name}  onChange={user.name ? null:(x)=>formulario(x)}></input>
+        <p>NOMBRE:</p>
+        <input type="text" name='name' value={user ?user.name+" "+user.lastName:null}  onChange={user ? null:(x)=>formulario(x)}></input>
+        <p>DIRECCION:</p>
+        <input type="text" name='adress' value={user ?user.adress:null}  onChange={user ? null:(x)=>formulario(x)}></input>
+        <p>MAil:</p>
+        <input type="mail" name='mail' value={user ?user.mail:null}  onChange={user ? null:(x)=>formulario(x)}></input>
+        <p>TELEFONO:</p>
+        <input type="number" name='phone' value={null}  onChange={(x)=>formulario(x)}></input>
       </form>
-    
+      <button onClick={()=>{endShop()}}><Link to="/www.google.com">scscsc</Link>  </button> 
     </div>
   )
 };

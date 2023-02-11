@@ -9,7 +9,10 @@ import { cartContext } from "../../context/cartContex";
 const ItemListContainer = () => {
 
   const {category} =useParams()
-  const { dataBase ,setDataBase}=useContext(cartContext)
+  const { dataBase ,setDataBase,userLog,user}=useContext(cartContext)
+
+  useEffect(()=>{if(user===null){userLog()}},[window])
+
   const db = getFirestore();
   const querysnapshot =collection(db,"item");
 

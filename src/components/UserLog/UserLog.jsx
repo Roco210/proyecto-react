@@ -4,12 +4,11 @@ import { useContext } from "react";
 import "./style.css"
 
 const UserLog = () => {
-  const {user, userData,auth }=useContext(cartContext)
-  console.log(auth)
+  const {user}=useContext(cartContext)
 
   return (
     <div className="userLog">
-      <p>{user ? userData.name:null}</p>
+      <p>{user ? user.name:null}</p>
       <Link to="user"><img className="userLogImg" alt="userlog" src='../images/userlog.png' /></Link>
     </div>
   )

@@ -1,0 +1,26 @@
+.adminTitle{
+    text-align: center;
+
+}
+.serchard{
+    list-style: none;
+    background-color: antiquewhite;
+    border: solid black;
+    border-radius: 10px;
+    
+}
+.serchContainer >ul>li{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.serchard > img{ 
+    width: 150px;
+    height: 150px;
+}
+.changeForm{
+    display: flex;
+    flex-direction: column;
+}
