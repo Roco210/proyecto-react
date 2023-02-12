@@ -25,7 +25,7 @@ addDoc(querySnapshot, order).then(
              text: `El codigo de tu orden es ${response.id}`,
              icon: "success",
              button: "Aceptar",
-         });
+         }).then((res)=>{if (res){window.location.assign("/")}});
          }
          
     ).catch((e) => console.log(e))
@@ -73,12 +73,6 @@ if(user && phone!==""){setfinalizar("si")
 else{setfinalizar("no")}},[visit])
 
 
-  const endShop=()=>{
-    createOrder();
-    swal("Gracias por su compra").then((res)=>{if (res){window.location.assign("/")}});
-}
-  
-
   return (
     <div><h1>Finalizar compra</h1>
       <form onSubmit={x=>x.preventDefault}>
@@ -91,7 +85,7 @@ else{setfinalizar("no")}},[visit])
         <p>TELEFONO:</p>
         <input type="number" name='phone' value={null}  onChange={(x)=>formulario(x)}></input>
       </form>
-      <button onClick={()=>{endShop()}} className={finalizar} >sxsxs{/* <a href={mensaje} target="_blank"> FINALIZAR COMPRA</a> */}</button> 
+      <button onClick={()=>{createOrder()}} className={finalizar} ><a href={mensaje} target="_blank"> FINALIZAR COMPRA</a> </button> 
     </div>
   )
 };
