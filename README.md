@@ -78,4 +78,4 @@ se utilizo libreria de sweet alert para confeccionar pop ups, y se centro en la 
 
 los perfiles almacenan los datos de usuario, y se mantiene el log en sesion, al refrescar la pagina no se pierde el usuario.
 
-se puede apreciar un video https://th.bing.com/th/id/OIP.-4dMT-VJHhO8A0R3UwifbAHaHa?w=195&h=195&c=7&r=0&o=5&pid=1.7 en el link precedente
+se puede apreciar un video (https://clipchamp.com/watch/rP9PXBSRJTh) en el link precedente
