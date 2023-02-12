@@ -68,3 +68,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+///
+
+Mi proyecto se basa en un un ecomerce, el cual es serverless 100% utilizando aplicativo de firebase, se logro generar un entorno de control completo sobre los productos, inventario, modificaciones de los mismos y de los usuarios, aplicando diferentes niveles de usuarios admin usuario admin@admin.com clave admin1. el resto de usuario que se genere se crea con perfil usuario.
+
+se utilizo libreria de sweet alert para confeccionar pop ups, y se centro en la utilizacion de css para aplicar codigo en su mayor proporcion y no recaer en libreria de estilo.
+
+los perfiles almacenan los datos de usuario, y se mantiene el log en sesion, al refrescar la pagina no se pierde el usuario.
+
+se puede apreciar un video (https://clipchamp.com/watch/rP9PXBSRJTh) en el link precedente
