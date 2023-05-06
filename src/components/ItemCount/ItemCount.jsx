@@ -51,10 +51,10 @@ const ItemCount = ({detalle}) => {
         <div>
           <h4>{counter}</h4>
         </div>
-        <button onClick={suma}>+</button>
+        <Button variant="dark" onClick={suma}>+</Button>
       </div>
       <div>
-        <button onClick={()=>reset()}> Agregar Carrito</button>
+        <Button variant="dark" onClick={()=>reset()}> Agregar Carrito</Button>
       </div>
     </div>
     
