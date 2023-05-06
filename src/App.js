@@ -9,7 +9,7 @@ import Cart from './pages/Cart/Cart';
 import Admin  from './pages/Admin/Admin';
 import CartForms from './components/CartForm/CartForm';
 import Users from './pages/Users/Users';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
