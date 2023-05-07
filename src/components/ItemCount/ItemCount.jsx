@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { cartContext } from "../../context/cartContex";
 import { useEffect } from "react";
 import swal from "sweetalert";
-
+import Button from 'react-bootstrap/Button';
 
 
 const ItemCount = ({detalle}) => {

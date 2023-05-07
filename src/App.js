@@ -7,7 +7,7 @@ import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer
 import CartProvider from './context/CartProvider';
 import Cart from './pages/Cart/Cart';
 import Admin  from './pages/Admin/Admin';
-import CartForms from './components/CartgitForm/CartForm';
+import CartForms from './components/CartForm/CartForm';
 import Users from './pages/Users/Users';
 
 
