@@ -3,7 +3,7 @@ import { useEffect,useContext } from "react"
 import { useParams } from "react-router-dom"
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { cartContext } from "../../context/cartContex";
-import {getFirestore,getDoc, doc} from "firebase/firestore"
+import {getFirestore,getDoc, doc} from "firebase/firestore";
 
 
 

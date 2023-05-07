@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { cartContext } from "../../context/cartContex";
 import { useEffect } from "react";
 import swal from "sweetalert";
-
+import Button from 'react-bootstrap/Button';
 
 
 const ItemCount = ({detalle}) => {
@@ -47,7 +47,7 @@ const ItemCount = ({detalle}) => {
   return (
     <div className="counter">
       <div className="counterControllers">
-        <button onClick={()=> menos()}>-</button>
+        <Button variant="dark" onClick={()=> menos()}>-</Button>
         <div>
           <h4>{counter}</h4>
         </div>

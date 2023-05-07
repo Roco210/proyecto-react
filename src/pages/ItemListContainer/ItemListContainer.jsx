@@ -5,6 +5,7 @@ import ItemsList from "../../components/Itemslist/ItemsList";
 import { useParams } from "react-router-dom";
 import {getFirestore,collection,getDocs} from "firebase/firestore"
 import { cartContext } from "../../context/cartContex";
+import IndividualIntervalsExample from "../../components/Carrusel/Carrusel";
 
 const ItemListContainer = () => {
 
@@ -32,7 +33,7 @@ const ItemListContainer = () => {
 
 return (
   <div>
-    
+    <IndividualIntervalsExample/>
     <ItemsList productos={dataBase}/>
   </div>
 ); }
