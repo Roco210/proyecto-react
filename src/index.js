@@ -26,11 +26,11 @@ console.log(APPID);
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: api_key,
-  authDomain: process.env.REACT_APP_AUTODOMAIN,
-  projectId: process.env.REACT_APP_API_PROJECTID,
-  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
-  appId: process.env.REACT_APP_APPID
+  authDomain: d,
+  projectId: PROJECTID,
+  storageBucket: STORAGEBUCKET,
+  messagingSenderId: MESSAGINGSENDERID,
+  appId: APPID
 };
 
 
