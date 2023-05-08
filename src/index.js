@@ -11,6 +11,17 @@ import { initializeApp } from "firebase/app";
 
 const api_key= process.env.REACT_APP_API_KEY;
 console.log(api_key);
+const d= process.env.REACT_APP_AUTODOMAIN;
+console.log(d);
+const PROJECTID= process.env.REACT_APP_PROJECTID;
+console.log(PROJECTID);
+const STORAGEBUCKET= process.env.REACT_APP_STORAGEBUCKET;
+console.log(STORAGEBUCKET);
+const MESSAGINGSENDERID= process.env.REACT_APP_MESSAGINGSENDERID;
+console.log(MESSAGINGSENDERID);
+const APPID= process.env.REACT_APP_APPID;
+console.log(APPID);
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
